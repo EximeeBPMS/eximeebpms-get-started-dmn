@@ -7,16 +7,16 @@
   <packaging>war</packaging>
 
   <properties>
-    <camunda.version>7.23.0</camunda.version>
+    <eximeebpms.version>1.0.0</eximeebpms.version>
     <maven.compiler.release>11</maven.compiler.release>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.camunda.bpm</groupId>
-        <artifactId>camunda-bom</artifactId>
-        <version>${camunda.version}</version>
+        <groupId>org.eximeebpms.bpm</groupId>
+        <artifactId>eximeebpms-bom</artifactId>
+        <version>${eximeebpms.version}</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -25,8 +25,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.camunda.bpm</groupId>
-      <artifactId>camunda-engine</artifactId>
+      <groupId>org.eximeebpms.bpm</groupId>
+      <artifactId>eximeebpms-engine</artifactId>
       <scope>provided</scope>
     </dependency>
 
@@ -48,7 +48,6 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.2</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>

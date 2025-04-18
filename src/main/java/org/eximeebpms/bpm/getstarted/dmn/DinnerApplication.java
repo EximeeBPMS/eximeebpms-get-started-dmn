@@ -14,20 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.camunda.bpm.getstarted.dmn;
+package org.eximeebpms.bpm.getstarted.dmn;
 
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.camunda.bpm.application.PostDeploy;
-import org.camunda.bpm.application.ProcessApplication;
-import org.camunda.bpm.application.impl.JakartaServletProcessApplication;
-import org.camunda.bpm.dmn.engine.DmnDecisionTableResult;
-import org.camunda.bpm.engine.DecisionService;
-import org.camunda.bpm.engine.ProcessEngine;
-import org.camunda.bpm.engine.variable.VariableMap;
-import org.camunda.bpm.engine.variable.Variables;
+import org.eximeebpms.bpm.application.PostDeploy;
+import org.eximeebpms.bpm.application.ProcessApplication;
+import org.eximeebpms.bpm.application.impl.JakartaServletProcessApplication;
+import org.eximeebpms.bpm.dmn.engine.DmnDecisionTableResult;
+import org.eximeebpms.bpm.engine.DecisionService;
+import org.eximeebpms.bpm.engine.ProcessEngine;
+import org.eximeebpms.bpm.engine.variable.VariableMap;
+import org.eximeebpms.bpm.engine.variable.Variables;
 
 @ProcessApplication("Dinner App DMN")
 public class DinnerApplication extends JakartaServletProcessApplication
