@@ -16,11 +16,36 @@
  */
 package org.eximeebpms.bpm.getstarted.dmn;
 
+import org.eximeebpms.bpm.application.PostDeploy;
 import org.eximeebpms.bpm.application.ProcessApplication;
 import org.eximeebpms.bpm.application.impl.JakartaServletProcessApplication;
+import org.eximeebpms.bpm.dmn.engine.DmnDecisionTableResult;
+import org.eximeebpms.bpm.engine.DecisionService;
+import org.eximeebpms.bpm.engine.ProcessEngine;
+import org.eximeebpms.bpm.engine.variable.VariableMap;
+import org.eximeebpms.bpm.engine.variable.Variables;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @ProcessApplication("Dinner App DMN")
 public class DinnerApplication extends JakartaServletProcessApplication
 {
-  //empty implementation
+    protected final static Logger LOGGER = Logger.getLogger(DinnerApplication.class.getName());
+
+    @PostDeploy
+    public void evaluateDecisionTable(ProcessEngine processEngine) {
+
+        DecisionService decisionService = processEngine.getDecisionService();
+
+        VariableMap variables = Variables.createVariables()
+                .putValue("season", "Spring")
+                .putValue("guestCount", 10);
+
+        DmnDecisionTableResult dishDecisionResult = decisionService.evaluateDecisionTableByKey("dish", variables);
+        String desiredDish = dishDecisionResult.getSingleEntry();
+
+        LOGGER.log(Level.INFO, "\n\nDesired dish: {0}\n\n", desiredDish);
+    }
+
 }
